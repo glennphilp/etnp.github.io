@@ -1,1 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Elm Thicket Northpark Zoning Ideation - Steering Committee 2020 - City of Dallas, Texas</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+  <style>.toggler--theme{display:flex;align-items:center;justify-content:center;height:30px;width:30px;background-color:var(--base-font-color);border:1px solid;border-radius:3px;cursor:pointer;position:fixed;bottom:1rem;right:1rem;z-index:99999}.toggler--theme::after,.toggler--theme::before{content:"";position:absolute;display:block;height:calc(30px - 10px);width:calc(30px - 10px);border-radius:50%}.toggler--theme::after{background-color:var(--body-background);-webkit-clip-path:ellipse(55% 100% at 8% 50%);clip-path:ellipse(55% 100% at 8% 50%)}.toggler--theme::before{border:1px solid}img{max-width:100%}.card{display:flex;flex-wrap:wrap;padding:1em}.app__header{position:-webkit-sticky;position:sticky;top:0;z-index:99999;display:grid;place-items:center;padding-top:1rem;padding-bottom:1rem;background-color:#fff;box-shadow:0 10px 20px -10px rgba(51,51,51,.7)}.app__header img{width:50vw}@media (min-width:760px){.app__header img{width:30vw}}@media (min-width:1200px){.app__header img{width:20vw}}@media (min-width:2000px){.app__header img{width:15vw}}:root{--body-background:hsl(0, 0%, 100%);--base-font-color:hsl(0, 0%, 20%);--radius-sm:calc(var(--radius, 0.25em)/2);--radius-md:var(--radius, 0.25em);--radius-lg:calc(var(--radius, 0.25em)*2);--shadow-xs:0 0.1px 0.3px rgba(0, 0, 0, 0.06),0 1px 2px rgba(0, 0, 0, 0.12);--shadow-sm:0 0.3px 0.4px rgba(0, 0, 0, 0.025),0 0.9px 1.5px rgba(0, 0, 0, 0.05),0 3.5px 6px rgba(0, 0, 0, 0.1);--shadow-md:0 0.9px 1.5px rgba(0, 0, 0, 0.03),0 3.1px 5.5px rgba(0, 0, 0, 0.08),0 14px 25px rgba(0, 0, 0, 0.12);--shadow-lg:0 1.2px 1.9px -1px rgba(0, 0, 0, 0.014),0 3.3px 5.3px -1px rgba(0, 0, 0, 0.038),0 8.5px 12.7px -1px rgba(0, 0, 0, 0.085),0 30px 42px -1px rgba(0, 0, 0, 0.15);--shadow-xl:0 1.5px 2.1px -6px rgba(0, 0, 0, 0.012),0 3.6px 5.2px -6px rgba(0, 0, 0, 0.035),0 7.3px 10.6px -6px rgba(0, 0, 0, 0.07),0 16.2px 21.9px -6px rgba(0, 0, 0, 0.117),0 46px 60px -6px rgba(0, 0, 0, 0.2);--bounce:cubic-bezier(0.175, 0.885, 0.32, 1.275);--ease-in-out:cubic-bezier(0.645, 0.045, 0.355, 1);--ease-in:cubic-bezier(0.55, 0.055, 0.675, 0.19);--ease-out:cubic-bezier(0.215, 0.61, 0.355, 1);--ease-out-back:cubic-bezier(0.34, 1.56, 0.64, 1)}.mode--dark{--body-background:hsl(0, 0%, 20%);--base-font-color:hsl(0, 0%, 95%)}@font-face{font-family:Megona;src:url(/_font/Megona.otf) format("otf"),url(/_font/Megona.ttf) format("truetype")}html{font-size:16px}body{margin:0;padding:0;font-family:"Open Sans";font-size:clamp(1.1em,.7153em + 1.6368vw,1.5em);line-height:1.6;background:var(--body-background);color:var(--base-font-color);min-height:100vh}h1,h2,h3,h4,h5,h6,p{margin-top:0}h1,h2,h3,h4,h5,h6{margin-bottom:1rem;font-family:"Playfair Display";font-weight:400;line-height:1.2}ul ul{margin-top:1rem;margin-bottom:2rem}.menu{padding-left:0;list-style-type:none}.menu__link{text-decoration:none}.grid{--gap:1em;--columns:3}.grid--masonry{gap:var(--gap)}@supports (display:grid){.grid--masonry{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}}@supports (grid-template-rows:masonry){.grid--masonry{grid-template-rows:masonry}}.grid--masonry .span--\@2{grid-column:span 2}.grid--masonry .span--\@3{grid-column:span 3}.grid--masonry .span--\@4{grid-column:span 4}.hide{display:none!important}.invisible{visibility:hidden}.show-for-sr,.show-on-focus{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.show-on-focus:active,.show-on-focus:focus{position:static!important;width:auto!important;height:auto!important;overflow:visible!important;clip:auto!important;white-space:normal!important}#mapid{height:60vh}@media (min-width:760px){#mapid{height:60vh}}@media (min-width:920px){#mapid{height:75vh}}ul{padding-left:1.2rem}ul li{list-style-type:none;text-indent:-1rem;margin-left:0;margin-bottom:.5rem}figure{margin:1rem;padding:1rem;outline:1px solid}figcaption{padding-top:1rem;font-size:1rem;font-style:italic}.article{display:grid;gap:1rem;grid-template-columns:auto;grid-template-rows:1fr auto;padding:1rem}@media (min-width:920px){.article{grid-template-columns:2fr 1fr}}@media (min-width:1200px){.article{grid-template-columns:minmax(auto,600px) minmax(auto,75ch) minmax(auto,30ch)}}@media (min-width:1600px){.article{grid-template-columns:1fr minmax(auto,600px) minmax(auto,75ch) minmax(auto,30ch) 1fr}}.article__header{grid-column:1/span 2}@media (min-width:1200px){.article__header{grid-column:1}}@media (min-width:1600px){.article__header{grid-column:2}}.article__header>.article__title{font-size:calc(40/16*1rem);font-weight:700}@media (min-width:920px){.article__header>.article__title{position:-webkit-sticky;position:sticky;top:10rem;font-size:calc(48/16*1rem)}}@media (min-width:1400px){.article__header>.article__title{top:13rem}}@media (min-width:2000px){.article__header>.article__title{top:15rem}}.article__main{max-width:75ch;grid-column:1}@media (min-width:1200px){.article__main{grid-column:2}}@media (min-width:1600px){.article__main{grid-column:3}}@media (max-width:1200px){.article__section{display:grid;gap:1rem;grid-template-columns:-webkit-max-content auto;grid-template-columns:max-content auto}.section__header>h2{position:-webkit-sticky;position:sticky;top:13rem}}.grid{display:grid;gap:1rem}@media (min-width:920px){.grid.two-up{grid-template-columns:repeat(2,1fr)}}.article__aside{grid-column:1}@media (min-width:920px){.article__aside{grid-column:2;grid-row:2;font-size:clamp(.875em,87.5%,1em)}}@media (min-width:1200px){.article__aside{grid-column:3;grid-row:1}}@media (min-width:1600px){.article__aside{grid-column:4}}@media (min-width:900px){.article__aside>div{padding-left:1rem;border-left:1px solid var(--base-font-color)}}footer{margin-bottom:2rem;padding:1rem;text-align:center}.pos-sticky-top{position:-webkit-sticky;position:sticky;top:13rem}@media (min-width:2000px){.pos-sticky-top{top:17rem}}</style>
+</head>
+<body>
+  <ul style="margin: 0;line-height: 0;">
+    <li style="margin:0;"><a href="#main" class="show-on-focus">Skip to content</a></li>
+    <!-- <li><a href="#main" class="show-on-focus">Skip to navigation</a></li> -->
+  </ul>
+  <div id="app" class="app">
+    <div id="app_header" class="app__header">
+      <img src="_img/elm-thicket-northpark-logo.webp" alt="">
+    </div><!-- @end app__header -->    <div id="app_main" class="app__main">
+      <main id="main" class="main">
+          <figure>
+            <div id="mapid"></div>
+            <figcaption>
+              Interactive map displaying 9 potential zones for the Elm Thicket Northpark neighborhood. SF (Single Family), D (Duplex/Townhome), and M (Multiplex).
+            </figcaption>
+          </figure>        <article class="article">
+          <div class="article__header">
+            <h1 class="article__title">Elm Thicket Northpark Zoning Ideation</h1>
+          </div>
+
+        
+        <div class="article__main">
+          <h2>Defining Zones:</h2>
+          <p>As a committee it is important to have a clear understanding of what Zoning can and cannot accomplish:</p>
+          <div class="grid two-up">
+            <div class="grid__cell">
+              <h3>Can</h3>
+              <ul>
+                <li>Regulate property usage</li>
+                <li>Setbacks &amp; height</li>
+                <li>Sidewalk requirements</li>
+                <li>Landscaping</li>
+              </ul>
+            </div>
+            <div class="grid__cell">
+              <h3>Cannot</h3>
+              <ul>
+                <li>Regulate total square feet</li>
+                <li>Regulate land value</li>
+                <li>Regulate the price of a property</li>
+              </ul>
+            </div>
+          </div>
+          <p>Members should ask themselves where they see their block and then this neighborhood in 5 to 10 years. Zoning is a long-term investment. Meaning it can be a dangerous bet if you apply to many regulations in a specific zone.</p>
+          <p>There is no law that says someone has to sale or update their property, it is only required to maintain their property. Meaning if too many restrictions were applied, it could endanger and backfire on the betterment of the community. A property owner could simply decide to sit on the property&mdash;as many did between 1990's to 2000's&mdash;until they make their return. We have all had to deal with slow City of Dallas Code responses. Can you imagine another 10 to 20 years with degrading property?</p>
+          <section class="article__section" id="section_01">
+            <div class="section__header"><h2>Zone 1</h2></div> <p>[Define the type of homes in this neighborhood]</p>
+          </section>
+          <section class="article__section" id="section_02">
+            <div class="section__header"><h2>Zone 2</h2></div> <p>[Define the type of homes in this neighborhood]</p>
+          </section>
+          <section class="article__section" id="section_03">
+            <div class="section__header"><h2>Zone 3</h2></div> <p>is already a duplex zone [Changes? Sidewalks?]</p>
+          </section>
+          <section class="article__section" id="section_04">
+            <div class="section__header"><h2>Zone 4</h2></div> <p>[Define the type of homes in this neighborhood], should it be divided even more which could cause even greater disconnect?</p>
+          </section>
+          <section class="article__section" id="section_05">
+            <div class="section__header"><h2>Zone 5</h2></div> <p>is single-family homes and most are less than 30 years old [Define the type of homes in this neighborhood]</p>
+          </section>
+          <section class="article__section" id="section_06">
+            <div class="section__header"><h2>Zone 6</h2></div> <p>[Define the type of homes in this neighborhood]. Most appear to be duplexes/town-homes.</p>
+          </section>
+          <section class="article__section" id="section_07">
+            <div class="section__header"><h2>Zone 7</h2></div> <p>Suggestion from a sitting committee member and fellow homeowners in this zone. Creating a new single-family zone around the KB Polk Elementary and Splash park. Would be outlined by Linnet to the North, Savage to the South, Tyree to the West and Victoria to the East. This area has 3 churches, 2 DISD schools, a splash park, and community garden. The setback seems sufficient in the area with new construction, already taking place. The requirement of a single Elm tree in the front yard would be a nice addition, including the front must be landscaped. Restricting how much of the property could be used for vehicle parking, such as driveways. There are 79 homes in this potential zone of that 4 are duplexes (all residing on Victoria), 6 empty lots, 5 remodels, 9 new builds, and 4 parking lots. Over 86% are long-term homeowners with 13% rental property. 11 of the 13 rental properties are located on Tyree.</p>
+          </section>
+          <section class="article__section" id="section_08">
+            <div class="section__header"><h2>Zone 8</h2></div>
+            <div>
+            <p>Suggestion from sitting committee member and fellow homeowner. In order to support the neighborhoods concern about increasing property values, it is important to diversify the neighborhoods offering. This zone which has the highest transient population, could benefit the neighborhood by becoming a multiplex zone. This would allow more homes per lot providing a way for developers to offer new home owners a chance to live in the heart of Dallas.</p>
+            <p>Beginning on Roper with Linnet to the north and Mockingbird to the south. Then expanding this zone from Tyree to the west, Roper to the east, Savage to the north and Mockingbird to the south. This area consist of 2 duplexes built in 2018/9, with a new duplex being started on Victoria as we speak. There is one church and one non-profit commercial space in this area. There are 11 empty lots, 1 community center, 3 churches, 1 non-profit commercial space, and 3 parking lot. Currently a total of 30 homes exist in this zone, in addition to all the empty lots, parking lots, churches, and commercial space.</p>
+            </div>
+          </section>
+          <section class="article__section" id="section_09">
+            <div class="section__header"><h2>Zone 9</h2></div> <p>[Define the type of homes in this neighborhood]. It appears this area is one of the oldest. How many home owners versus rentals? How many empty lots? What is the average price per home?</p>
+          </section>
+          <hr>
+          <p>Mark has mentioned multiple times that we can slow property values in the neighborhood by restricting how much land can be utilized. How does this work, when multiple homes in this area have been purchased and remodeled with an asking price at $400,000? Anyone advocating that property prices will decrease if we build smaller homes, does not understand the market or our neighborhood.</p>
+          <p>What is the typical home in this zone? The average square feet, how much of the property does it take up? What is the average lot size? How many stories is the average home? Is the majority single-family, duplex, multiplex? Are the majority home owner or rentals?</p>
+          <p>The fact this committee is making decisions for areas some residents do not live is concerning. For instance, I live by the new splash park and head-up the Holiday in the Park. There are a high percentage of members on this committee that never venture to this part of the neighborhood. How then can they decide what is best for this sub-section. Although my family does venture through other areas of the neighborhood as we go to shop, eat, or walk. It does not feel right or justified that I would make a decision on what their neighboring homes would look like.</p>
+          <p>Does everyone on the committee understand that there is no such thing as a cheap home in this neighborhood? For instance, when my family looked to buy in 2010 homes for teardown were $99,000. By 2016 that price had increased to $175,000. Today, a lot in this neighborhood is $275,000 or over $300,000 with a home needing remodeled or demolished.</p>
+          <p>Some like Mark will say if you restrict the type of home someone can build, it will reduce the price of land. Not exactly. What is the one thing Dallas is not making? More land. If anything by piling on many restrictions you can almost guarantee the dilapidated rentals will last even longer, than expected.</p>
+          <p>Simply taking a look at the history of families down my street, you will notice that these homes do not trade hands often.</p>
+        </div><!-- @end article__main -->
+        <aside class="article__aside">
+          <div class="pos-sticky-top">
+            <h2>Zoning Options</h2>
+            <ul>
+              <li>Setbacks</li>
+              <li>Sidewalks</li>
+              <li>Parking and Driveways</li>
+              <li>Landscaping requirements</li>
+              <li>Property usage (residential, rental (including Airbnbs), commercial, community, etc)</li>
+            </ul>
+          </div>
+        </aside>
+        
+
+        </article>
+        <footer class="main__footer">
+          <p><small>Copyright 2020 - Created with ❤ by Glenn</small></p>
+        </footer><!-- @end main__footer -->
+      </main><!-- @end main -->
+    </div><!-- @end app__main -->
+    <div id="app_footer" class="app__footer">
+      <div id="nav_settings" class="nav nav--settings">
+        <button id="toggle_mode" class="button toggler--theme" aria-label="Toggle Theme"></button>
+      </div></div><!-- @end app__footer -->  </div><!-- @end app -->
+  <script src="_js/app.js"></script>
+  <script>
+    let dark_mode = localStorage.getItem('dark_mode');
+
+    // Outputs the users device preferences
+    const LIGHT = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const DARK = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    const dark_mode_toggle = document.querySelector('#toggle_mode')
+
+    // check if dark mode is enabled
+    // if enabled, turn it off
+    // if disabled, turn it on
+
+    const enable_dark_mode = () => {
+      // 1. Add the class dark mode to the body
+      document.body.classList.add('mode--dark');
+      // 2. update dark mode in the localStorage
+      localStorage.setItem('dark_mode', 'enabled');
+    }
+
+    const disable_dark_mode = () => {
+      // 1. Add the class dark mode to the body
+      document.body.classList.remove('mode--dark');
+      // 2. update dark mode in the localStorage
+      localStorage.setItem('dark_mode', null);
+    }
+
+    if (dark_mode === 'enabled') {
+      enable_dark_mode();
+    }
+
+    dark_mode_toggle.addEventListener('click', () => {
+      dark_mode = localStorage.getItem('dark_mode');
+
+      if (dark_mode !== 'enabled') {
+        enable_dark_mode();
+      } else {
+        disable_dark_mode();
+      }
+    });
+  </script>
+</body>
+</html>
